@@ -1,42 +1,46 @@
 package Trapping_Rain_water;
 import java.util.*;
-
 public class Main {
     public static void main(String[] args)
     {
         Scanner sc = new Scanner(System.in);
         int size = sc.nextInt();
         int arr[] = new int[size];
+        int left[] = new int[size];
+        int right[] = new int[size];
+        int max =0;
         int sum=0;
         for(int i=0;i<size;i++)
         {
             arr[i] = sc.nextInt();
         }
-
         for(int i=1;i<size-1;i++)
         {
-            int max_left =arr[i] , max_right=arr[i];
-            for(int j=i-1;j>=0;j--)
+            if(arr[i-1]>max)
             {
-                if(arr[j]>max_left)
-                {
-                    max_left = arr[j];
-                }
+                max=arr[i-1];
             }
-            for(int k=i+1;k<size;k++)
+            left[i] = max;
+        }
+        int max1 =0;
+        for(int i=size-2;i>0;i--)
+        {
+            if(arr[i+1]>max1)
             {
-                if(arr[k]>max_right)
-                {
-                    max_right = arr[k];
-                }
+                max1=arr[i+1];
             }
-            if(max_right>max_left)
+            right[i] = max1;
+
+        }
+        for(int i=1;i<size-1;i++)
+        {
+            if(right[i]>left[i] && left[i]>arr[i])
             {
-                sum=sum+(max_left-arr[i]);
+                sum=sum+(left[i]-arr[i]);
             }
-            else if(max_right<=max_left && arr[i]!=max_left)
+            else if(right[i]<=left[i] && right[i]>arr[i] && arr[i]!=right[i])
             {
-                sum=sum+(max_right-arr[i]);
+                sum=sum+(right[i]-arr[i]);
             }
         }
         System.out.print(sum);
