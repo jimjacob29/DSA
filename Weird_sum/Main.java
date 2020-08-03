@@ -1,18 +1,22 @@
 package Weird_sum;
 import java.util.*;
+import java.math.*;
 public class Main {
     public static void main(String[] args)
     {
         Scanner sc = new Scanner(System.in);
-        long num = sc.nextLong();
-        long sum=0,a=1;
+        long number = sc.nextLong();
+        BigInteger num = BigInteger.valueOf(number);
+        long s=0,a1=1,b1 = 1000000000+7;
+        BigInteger sum = BigInteger.valueOf(s);
+        BigInteger a = BigInteger.valueOf(a1);
+        BigInteger b = BigInteger.valueOf(b1);
         for(int i=1;i<=1000;i++)
         {
-            a = a*num;
-            long b = 1000000000+7;
-            long c = a%b;
-            sum=sum+c;
+            a = a.multiply(num);
+            sum=sum.add(a);
         }
-        System.out.print(sum);
+        BigInteger c = sum.mod(b);
+        System.out.print(c);
     }
 }
