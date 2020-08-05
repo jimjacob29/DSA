@@ -5,4 +5,4 @@ The first and the only line of input contains a single integer A.
 Constraints
 1 <= A <= 109
 Output
-Output a single integer, value of sum modulo 109+7.
+Output a single integer, value of sum modulo 10^9+7.
