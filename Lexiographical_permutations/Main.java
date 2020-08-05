@@ -26,7 +26,15 @@ public class Main
         }
         else if(size<=4)
         {
-            for (int i = 0; i <= size; i = i + 3)
+            if (size==3)
+            {
+                System.out.print(1+" "+3+" "+2);
+            }
+            else if (size==4)
+            {
+                System.out.print(1+" "+3+" "+2+" "+4);
+            }
+            /*for (int i = 0; i <= size; i = i + 3)
             {
                 if (i + 1 <= size)
                 {
@@ -41,7 +49,7 @@ public class Main
                     System.out.print((i + 2) + " ");
                 }
                 else break;
-            }
+            }*/
         }
     }
 }
